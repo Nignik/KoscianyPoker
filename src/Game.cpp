@@ -31,7 +31,7 @@ void Game::StartRound()
 
 void Game::EndRound()
 {
-    UI::awaitConfirmation();
+    //UI::awaitConfirmation();
 }
 
 unsigned int Game::ComputeResults()

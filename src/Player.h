@@ -1,8 +1,10 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
 #include <random>
 #include <algorithm>
+
 
 struct Player {
     std::vector<int> dices;
@@ -14,13 +16,22 @@ struct Player {
         : name(name),
         dices(std::vector<int>(5))
     {
-        ThrowDices();
     }
 
     void ThrowDices() {
-        for (auto& dice : dices) {
-            dice = rand() % 6 + 1;
+        // for (auto& dice : dices) {
+        //     dice = rand() % 6 + 1;
+        // }
+
+        std::string s;
+        std::cout << "Podaj kosci: ";
+        std::cin >> s;
+
+        for (int i = 0; i < dices.size(); i++)
+        {
+            dices[i] = s[i] - 48;
         }
+
         std::sort(dices.rbegin(), dices.rend());
         ComputeDicesFormation();
     }
@@ -39,11 +50,11 @@ struct Player {
             }
         }
 
-        if(cnt == 5 && dicesCount[0] == 1 && dicesCount.back() != 1){
+        if(cnt == 5 && dicesCount[1] == 1 && dicesCount.back() != 1){
             dicesFormation = "Maly Street";
             score = 4;
         }
-        else if(cnt == 5 && dicesCount.back() == 1 && dicesCount[0] != 1){
+        else if(cnt == 5 && dicesCount.back() == 1 && dicesCount[1] != 1){
             dicesFormation = "Duzy Street";
             score = 5;
         }
