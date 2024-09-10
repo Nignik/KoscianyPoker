@@ -12,7 +12,7 @@ struct Player {
 
     Player(std::string name) 
         : name(name),
-        dices(std::vector<int>(6))
+        dices(std::vector<int>(5))
     {
         ThrowDices();
     }
